@@ -22,7 +22,6 @@ export async function POST(request: NextRequest) {
       CONFIG_STATUS
     );
   }
-  console.log(Authorization);
   const [_, token] = Authorization.split(' ');
   if (!token) {
     return NextResponse.json(
@@ -31,7 +30,6 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  console.log({ token, B3AR3R });
   if (token !== B3AR3R) {
     return NextResponse.json({ message: 'Token is invalid' }, CONFIG_STATUS);
   }
